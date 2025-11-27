@@ -5,7 +5,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { PLAYERS, MATCHES, NEWS, LEAGUE_TABLE } from './constants';
-import { ArrowRight, Calendar, MapPin, User, ChevronRight, ShoppingBag, Shirt, TrendingUp, Users, Trophy, Target, Mountain, Filter, Clock, Ticket, Award, Briefcase, GraduationCap, ClipboardCheck, Timer, Play, PlayCircle, Video } from 'lucide-react';
+import { ArrowRight, Calendar, MapPin, User, ChevronRight, ShoppingBag, Shirt, TrendingUp, Users, Trophy, Target, Mountain, Filter, Clock, Ticket, Award, Briefcase, GraduationCap, ClipboardCheck, Timer, Play, PlayCircle, Video, Brain, Zap, Heart, Footprints } from 'lucide-react';
 
 // --- Helpers ---
 
@@ -767,15 +767,15 @@ const ClubPage: React.FC = () => (
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
         {/* NEW CLUB HERO SECTION */}
-        <div className="relative h-[60vh] flex items-center justify-center overflow-hidden mb-20">
+        <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden mb-20 pb-12 pt-32">
             <div className="absolute inset-0">
                 <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover animate-hero-zoom origin-center" alt="Club History" />
                 <div className="absolute inset-0 bg-stone-950/80"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/50"></div>
             </div>
-            <div className="relative z-10 text-center max-w-4xl px-4 mt-20">
+            <div className="relative z-10 text-center max-w-4xl px-4">
                  <span className="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/10 text-glama-light text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-md opacity-0 animate-hero-fade-up">Since 1952</span>
-                 <h1 className="text-6xl md:text-9xl font-display font-bold text-white uppercase leading-[0.9] mb-8 opacity-0 animate-hero-fade-up [animation-delay:200ms]">
+                 <h1 className="text-5xl md:text-7xl lg:text-9xl font-display font-bold text-white uppercase leading-[0.9] mb-8 opacity-0 animate-hero-fade-up [animation-delay:200ms]">
                      More Than <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-glama-primary to-glama-light">A Club</span>
                  </h1>
                  <p className="text-xl md:text-2xl text-stone-300 leading-relaxed max-w-2xl mx-auto font-light opacity-0 animate-hero-fade-up [animation-delay:400ms]">
@@ -785,47 +785,81 @@ const ClubPage: React.FC = () => (
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            {/* History Grid */}
-            <div className="grid md:grid-cols-2 gap-12 mb-24 opacity-0 animate-hero-fade-up [animation-delay:600ms]">
-                <div className="space-y-8">
-                     <div className="bg-stone-900 p-8 rounded-2xl border-l-4 border-glama-primary shadow-xl">
-                        <h3 className="font-display font-bold text-3xl text-white uppercase mb-4 flex items-center gap-3">
-                            <Mountain className="text-glama-primary" /> The Origins
-                        </h3>
-                        <p className="text-stone-400 leading-relaxed mb-4">
-                            Established in 1952 by local quarry workers, FK Glama was named after the imposing limestone hill that shadows the training ground.
-                            The founders believed that the team should embody the characteristics of the hill: immovable in defense and majestic in presence.
-                        </p>
-                     </div>
-                     <div className="bg-stone-900 p-8 rounded-2xl border-l-4 border-stone-700 shadow-xl">
-                        <h3 className="font-display font-bold text-3xl text-white uppercase mb-4 flex items-center gap-3">
-                            <Target className="text-glama-light" /> The Identity
-                        </h3>
-                        <p className="text-stone-400 leading-relaxed">
-                            We play "Hillsman Football" - a high-energy, physical style that demands total commitment. Our colors, Green and White, represent the 
-                            forests of Glama and the limestone rock beneath.
-                        </p>
-                     </div>
-                </div>
-                
-                {/* Visual / Stats Block */}
-                <div className="grid grid-cols-2 gap-4">
-                     <div className="bg-stone-900/50 p-6 rounded-xl border border-stone-800 flex flex-col justify-center items-center text-center hover:bg-glama-primary/10 transition-colors">
-                        <span className="text-4xl font-display font-bold text-white mb-2">1952</span>
-                        <span className="text-xs uppercase tracking-widest text-stone-500 font-bold">Founded</span>
-                     </div>
-                     <div className="bg-stone-900/50 p-6 rounded-xl border border-stone-800 flex flex-col justify-center items-center text-center hover:bg-glama-primary/10 transition-colors">
-                        <span className="text-4xl font-display font-bold text-white mb-2">3</span>
-                        <span className="text-xs uppercase tracking-widest text-stone-500 font-bold">League Titles</span>
-                     </div>
-                     <div className="bg-stone-900/50 p-6 rounded-xl border border-stone-800 flex flex-col justify-center items-center text-center hover:bg-glama-primary/10 transition-colors">
-                        <span className="text-4xl font-display font-bold text-white mb-2">12</span>
-                        <span className="text-xs uppercase tracking-widest text-stone-500 font-bold">Cup Finals</span>
-                     </div>
-                     <div className="bg-stone-900/50 p-6 rounded-xl border border-stone-800 flex flex-col justify-center items-center text-center hover:bg-glama-primary/10 transition-colors">
-                        <span className="text-4xl font-display font-bold text-white mb-2">85%</span>
-                        <span className="text-xs uppercase tracking-widest text-stone-500 font-bold">Local Players</span>
-                     </div>
+            {/* Club DNA Section (Bento Grid) */}
+            <div className="mb-24 opacity-0 animate-hero-fade-up [animation-delay:600ms]">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Origins Card - Wide */}
+                    <div className="lg:col-span-2 bg-stone-900 rounded-3xl p-8 md:p-12 border border-stone-800 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-stone-800/50 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+                        <div className="relative z-10">
+                            <div className="flex items-center gap-4 mb-6">
+                                <div className="p-3 bg-stone-950 rounded-2xl border border-stone-800 text-glama-primary">
+                                    <Mountain size={24} />
+                                </div>
+                                <h3 className="font-display font-bold text-3xl md:text-4xl text-white uppercase">The Origins</h3>
+                            </div>
+                            <p className="text-stone-400 text-lg leading-relaxed max-w-2xl">
+                                Established in 1952 by local quarry workers, FK Glama was named after the imposing limestone hill that shadows the training ground. 
+                                The founders believed that the team should embody the characteristics of the hill: <span className="text-white font-bold">immovable in defense and majestic in presence.</span>
+                            </p>
+                        </div>
+                        {/* Decorative '52' */}
+                        <div className="absolute bottom-[-20px] right-[-20px] font-display font-bold text-[180px] text-stone-800/20 leading-none select-none pointer-events-none">
+                            52
+                        </div>
+                    </div>
+
+                    {/* Founded Stat - Tall/Square */}
+                    <div className="bg-glama-primary rounded-3xl p-8 border border-glama-light/20 relative overflow-hidden flex flex-col justify-between group hover:scale-[1.02] transition-transform duration-500">
+                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-glama-light/20 to-transparent"></div>
+                         <div className="relative z-10">
+                             <span className="text-glama-dark/70 font-bold uppercase tracking-widest text-sm">Established</span>
+                             <h4 className="font-display font-bold text-6xl md:text-8xl text-white mt-2">1952</h4>
+                         </div>
+                         <div className="relative z-10">
+                             <p className="text-glama-dark font-bold text-sm leading-tight mt-4">
+                                 Seven decades of football tradition in Bela Palanka.
+                             </p>
+                         </div>
+                         <Calendar className="absolute bottom-4 right-4 text-glama-dark/20 w-24 h-24" />
+                    </div>
+
+                    {/* Identity - Tall/Square */}
+                    <div className="bg-stone-900 rounded-3xl p-8 border border-stone-800 relative overflow-hidden flex flex-col group">
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-stone-950/80 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" alt="Texture" />
+                        
+                        <div className="relative z-20 h-full flex flex-col">
+                             <div className="p-3 bg-glama-primary w-fit rounded-2xl text-white mb-auto shadow-lg">
+                                <Target size={24} />
+                            </div>
+                            <div className="mt-8">
+                                <h3 className="font-display font-bold text-3xl text-white uppercase mb-2">The Identity</h3>
+                                <p className="text-stone-300 text-sm leading-relaxed">
+                                    We play <span className="text-glama-light font-bold">"Hillsman Football"</span> - a high-energy, physical style. Green and White representing the forest and the rock.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Stats Strip - Wide */}
+                    <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        {[
+                            { label: "League Titles", value: "3", icon: Trophy, color: "text-yellow-500" },
+                            { label: "Cup Finals", value: "12", icon: Award, color: "text-glama-light" },
+                            { label: "Local Players", value: "85%", icon: MapPin, color: "text-blue-400" }
+                        ].map((stat, i) => (
+                            <div key={i} className="bg-stone-900 rounded-3xl p-6 border border-stone-800 flex items-center gap-4 hover:border-stone-700 transition-colors">
+                                <div className={`p-3 rounded-full bg-stone-950 border border-stone-800 ${stat.color}`}>
+                                    <stat.icon size={20} />
+                                </div>
+                                <div>
+                                    <div className="font-display font-bold text-3xl text-white leading-none">{stat.value}</div>
+                                    <div className="text-xs text-stone-500 uppercase tracking-wider font-bold">{stat.label}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
@@ -849,13 +883,21 @@ const ClubPage: React.FC = () => (
             <div className="relative rounded-3xl overflow-hidden bg-stone-900 border border-stone-800 shadow-2xl">
                 {/* Updated Stadium Image */}
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2500&auto=format&fit=crop')] bg-cover bg-center opacity-40 hover:scale-105 transition-transform duration-[2s]"></div>
-                <div className="relative z-10 p-12 md:p-24 text-center">
+                <div className="relative z-10 p-6 py-12 md:p-24 text-center">
                     <Trophy className="mx-auto text-glama-primary mb-6" size={48} />
                     <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase mb-6">Glama Hill Arena</h2>
-                    <p className="text-stone-300 text-lg max-w-2xl mx-auto mb-10">
-                        Capacity: 4,500 • Built: 1960 • Renovated: 2018 <br/>
-                        A cauldron of noise on matchdays. The stands are built directly into the base of the hill, creating unique acoustics.
-                    </p>
+                    
+                    <div className="flex flex-col gap-6 max-w-2xl mx-auto mb-10">
+                         <div className="flex flex-wrap justify-center gap-3 text-sm md:text-base font-bold uppercase tracking-widest text-glama-light">
+                            <span className="bg-stone-950/50 backdrop-blur px-4 py-2 rounded-full border border-white/10">Capacity: 4,500</span>
+                            <span className="bg-stone-950/50 backdrop-blur px-4 py-2 rounded-full border border-white/10">Built: 1960</span>
+                            <span className="bg-stone-950/50 backdrop-blur px-4 py-2 rounded-full border border-white/10">Renovated: 2018</span>
+                         </div>
+                         <p className="text-stone-300 text-base md:text-lg leading-relaxed">
+                            A cauldron of noise on matchdays. The stands are built directly into the base of the hill, creating unique acoustics.
+                         </p>
+                    </div>
+
                     <div className="flex flex-wrap justify-center gap-4">
                          <button className="bg-white text-stone-950 px-8 py-3 rounded-full font-bold uppercase hover:bg-glama-primary hover:text-white transition-colors">
                             Stadium Guide
@@ -875,14 +917,14 @@ const AcademyPage: React.FC = () => (
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
         
         {/* Academy Hero */}
-        <div className="relative h-[50vh] flex items-center justify-center overflow-hidden mb-20">
+        <div className="relative min-h-[50vh] flex items-center justify-center overflow-hidden mb-20 pb-12 pt-32">
              <div className="absolute inset-0">
                 <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover animate-hero-zoom origin-center" alt="Youth Academy" />
                 <div className="absolute inset-0 bg-stone-950/80"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/50"></div>
             </div>
-            <div className="relative z-10 text-center max-w-4xl px-4 mt-20">
-                 <h1 className="text-5xl md:text-8xl font-display font-bold text-white uppercase leading-[0.9] mb-6 opacity-0 animate-hero-fade-up">
+            <div className="relative z-10 text-center max-w-4xl px-4">
+                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white uppercase leading-[0.9] mb-6 opacity-0 animate-hero-fade-up">
                      Forging <br/><span className="text-glama-primary">The Future</span>
                  </h1>
                  <p className="text-xl text-stone-300 font-light opacity-0 animate-hero-fade-up [animation-delay:200ms]">
@@ -892,66 +934,109 @@ const AcademyPage: React.FC = () => (
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-20 opacity-0 animate-hero-fade-up [animation-delay:400ms]">
-            <div className="grid md:grid-cols-2 gap-16 mb-20">
-                <div>
-                     <SectionHeader title="Our Philosophy" subtitle="Development First" light={true} />
-                     <div className="space-y-6 text-stone-400 text-lg leading-relaxed">
-                        <p>
-                            At FK Glama, we believe that the best players aren't just bought, they are built. Our academy focuses on technical excellence, tactical intelligence, and physical resilience.
+            
+            {/* PHILOSOPHY SECTION */}
+            <div className="mb-24">
+                 <SectionHeader title="Our Philosophy" subtitle="Development First" light={true} />
+                 
+                 <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+                     <div className="space-y-6 text-lg leading-relaxed text-stone-400">
+                        <p className="text-2xl font-display font-bold text-white uppercase mb-4">
+                            "The best players aren't bought, <span className="text-glama-primary">they are built</span>."
                         </p>
                         <p>
-                            Every young player is taught the "Glama Way" - playing with courage, respecting the opponent, and never giving up on the team.
+                             Our academy isn't just about football; it's about life. We focus on technical excellence, tactical intelligence, and physical resilience. But more importantly, we build character.
                         </p>
-                        <div className="flex gap-4 mt-8">
-                            <div className="flex-1 bg-stone-900 p-4 rounded-xl border border-stone-800">
-                                <GraduationCap className="text-glama-primary mb-2" />
-                                <h4 className="font-bold text-white uppercase text-sm">Education</h4>
-                                <p className="text-xs mt-1">Academic support for all youth players.</p>
-                            </div>
-                            <div className="flex-1 bg-stone-900 p-4 rounded-xl border border-stone-800">
-                                <ClipboardCheck className="text-glama-primary mb-2" />
-                                <h4 className="font-bold text-white uppercase text-sm">Discipline</h4>
-                                <p className="text-xs mt-1">Building character on and off the pitch.</p>
-                            </div>
-                        </div>
+                        <p>
+                             Every young player is taught the "Glama Way" - playing with courage, respecting the opponent, and never giving up on the team.
+                        </p>
                      </div>
-                </div>
-                <div className="relative">
-                    <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1000&auto=format&fit=crop" className="rounded-2xl shadow-2xl border border-stone-800 grayscale hover:grayscale-0 transition-all duration-700" alt="Training" />
-                    <div className="absolute -bottom-6 -left-6 bg-glama-primary text-white p-6 rounded-xl shadow-lg max-w-xs">
-                        <p className="font-display font-bold text-2xl uppercase leading-none mb-2">"This is where dreams begin."</p>
-                        <p className="text-xs uppercase tracking-widest text-glama-dark font-bold">- Dragan Vasic, Head of Academy</p>
-                    </div>
+                     <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-stone-800 group">
+                         <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=1000&auto=format&fit=crop" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" alt="Training" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-90"></div>
+                         <div className="absolute bottom-8 left-8 right-8">
+                             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl">
+                                 <p className="font-display font-bold text-2xl uppercase leading-none text-white italic mb-3">"This is where dreams begin."</p>
+                                 <div className="flex items-center gap-3">
+                                     <div className="w-10 h-10 bg-glama-primary rounded-full flex items-center justify-center text-white font-bold text-xs">DV</div>
+                                     <div>
+                                         <p className="text-xs font-bold text-white uppercase tracking-wider">Dragan Vasic</p>
+                                         <p className="text-[10px] text-glama-light uppercase tracking-widest">Head of Academy</p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 {/* Core Values Grid */}
+                 <div className="grid md:grid-cols-3 gap-6">
+                    {[
+                        { title: "Technique", icon: Brain, desc: "Mastery of the ball is the foundation of our game." },
+                        { title: "Resilience", icon: Zap, desc: "Building the physical engine to dominate for 90 minutes." },
+                        { title: "Character", icon: Heart, desc: "Respect, discipline, and loyalty to the badge." }
+                    ].map((value, i) => (
+                        <div key={i} className="bg-stone-900 p-8 rounded-2xl border border-stone-800 hover:border-glama-primary/50 transition-colors group">
+                             <div className="w-12 h-12 bg-stone-950 rounded-xl flex items-center justify-center text-glama-primary border border-stone-800 mb-6 group-hover:scale-110 transition-transform">
+                                 <value.icon size={24} />
+                             </div>
+                             <h4 className="font-display font-bold text-2xl text-white uppercase mb-3">{value.title}</h4>
+                             <p className="text-stone-400 text-sm leading-relaxed">{value.desc}</p>
+                        </div>
+                    ))}
+                 </div>
+            </div>
+
+            {/* PATHWAY / AGE GROUPS */}
+            <div className="mb-24">
+                <SectionHeader title="The Pathway" subtitle="Road to the First Team" light={true} />
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                    {/* Visual Connector Line (Desktop) */}
+                    <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-stone-800 -z-10 -translate-y-1/2"></div>
+
+                    {[
+                        { title: "Foundation", ages: "U12 - U14", phase: "Development Phase", icon: Footprints },
+                        { title: "Performance", ages: "U15 - U17", phase: "Tactical Phase", icon: Target },
+                        { title: "Excellence", ages: "U19", phase: "Professional Phase", icon: Trophy },
+                    ].map((step, i) => (
+                        <div key={i} className="bg-stone-950 p-8 rounded-2xl border border-stone-800 relative group hover:-translate-y-2 transition-transform duration-300">
+                             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <step.icon size={64} />
+                             </div>
+                             <div className="inline-block px-3 py-1 rounded bg-stone-900 text-glama-light text-xs font-bold uppercase tracking-widest border border-stone-800 mb-4">
+                                {step.ages}
+                             </div>
+                             <h4 className="font-display font-bold text-3xl text-white uppercase mb-1">{step.title}</h4>
+                             <p className="text-stone-500 text-sm font-bold uppercase tracking-wider mb-6">{step.phase}</p>
+                             
+                             <div className="w-full bg-stone-900 h-1.5 rounded-full overflow-hidden">
+                                 <div className={`h-full bg-glama-primary ${i === 0 ? 'w-1/3' : i === 1 ? 'w-2/3' : 'w-full'}`}></div>
+                             </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            {/* Age Groups / CTA */}
-            <div className="bg-stone-900 rounded-3xl p-12 text-center border border-stone-800 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-glama-primary/10 rounded-full blur-[80px]"></div>
-                <div className="relative z-10">
-                    <h2 className="text-4xl font-display font-bold text-white uppercase mb-4">Join The Academy</h2>
-                    <p className="text-stone-400 max-w-2xl mx-auto mb-10">
-                        We hold open trials for U12, U14, and U16 age groups every summer. Do you have what it takes to wear the green and white?
+            {/* HIGH IMPACT CTA */}
+            <div className="relative rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-glama-dark to-glama-primary"></div>
+                <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                
+                <div className="relative z-10 p-12 md:p-16 text-center">
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-white uppercase mb-6 drop-shadow-lg">
+                        Do You Have What It Takes?
+                    </h2>
+                    <p className="text-glama-light text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
+                        Open trials for the 24/25 season begin this Summer. Join the ranks of FK Glama.
                     </p>
-                    <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
-                         <div className="bg-stone-950 p-6 rounded-xl border border-stone-800">
-                             <h4 className="text-glama-primary font-bold text-2xl mb-1">U12-U14</h4>
-                             <p className="text-stone-500 text-xs uppercase tracking-widest">Development Phase</p>
-                         </div>
-                         <div className="bg-stone-950 p-6 rounded-xl border border-stone-800">
-                             <h4 className="text-glama-primary font-bold text-2xl mb-1">U15-U17</h4>
-                             <p className="text-stone-500 text-xs uppercase tracking-widest">Performance Phase</p>
-                         </div>
-                         <div className="bg-stone-950 p-6 rounded-xl border border-stone-800">
-                             <h4 className="text-glama-primary font-bold text-2xl mb-1">U19</h4>
-                             <p className="text-stone-500 text-xs uppercase tracking-widest">Professional Phase</p>
-                         </div>
-                    </div>
-                    <button className="bg-white text-stone-950 px-8 py-3 rounded-full font-bold uppercase hover:bg-glama-primary hover:text-white transition-colors flex items-center gap-2 mx-auto">
-                        Register for Trials <Timer size={18} />
+                    <button className="bg-white text-glama-dark px-10 py-4 rounded-full font-display font-bold text-xl uppercase tracking-wider hover:bg-stone-100 hover:scale-105 transition-all shadow-2xl flex items-center gap-3 mx-auto">
+                        Register For Trials <ChevronRight size={24} />
                     </button>
+                    <p className="mt-6 text-white/60 text-xs uppercase tracking-widest font-bold">Next Trial Date: June 15th, 2024</p>
                 </div>
             </div>
+
         </div>
     </div>
 );
@@ -960,6 +1045,11 @@ const MainLayout: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     
+    // Fix: Scroll to top on route change, instantly
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }, [location.pathname]);
+
     // Helper to get current page ID from path
     const getCurrentPage = () => {
         const path = location.pathname.substring(1);
@@ -967,7 +1057,7 @@ const MainLayout: React.FC = () => {
     }
 
     const handleNavigate = (page: string) => {
-        window.scrollTo(0, 0);
+        // Removed explicit scrollTo here to avoid scrolling the previous page
         if (page === 'home') {
             navigate('/');
         } else {
